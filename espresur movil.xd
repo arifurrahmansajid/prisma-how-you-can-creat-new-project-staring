@@ -1,0 +1,47 @@
+
+npm init -y
+npm install typescript tsx @types/node --save-dev
+npx tsc --init
+
+
+#Install required dependencies
+
+npm install prisma @types/node @types/pg --save-dev 
+npm install @prisma/client @prisma/adapter-pg pg dotenv
+
+#Initialize Prisma ORM
+
+npx prisma init --datasource-provider postgresql --output ../generated/prisma
+
+
+
+#Backend
+
+npm add express cors
+
+
+
+#changes in tsconfig.json
+
+"mofule": "ESNext"
+"moduleResolution": "node",
+"target": "ES2023",
+
+#comment this part:
+//"jsx": "react-jsx"
+//"verbatimModuleSyntax" : true,
+
+#insert this insted
+"esModuleInterop": true,
+
+under this: 
+},
+"include": ["src/**/*"]
+"exclude": ["node_modules", "dist", "src/generated"]
+
+#if @types/node is not install
+
+npm add -D @type/node
+
+
+#end part creat src file
